@@ -1,0 +1,1064 @@
+/* ===== Global Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Body Styling ===== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+
+/* ===== Navigation Bar ===== */
+header {
+    background-color: #0a3d62;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 22px;
+}
+
+/* Logo styling */
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 45px;
+    width: auto;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.logo img:hover {
+    opacity: 0.8;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #c9a85c;
+}
+
+/* ===== Mobile Menu Toggle Button ===== */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* ===== Mobile Responsive Navigation ===== */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 75px;
+        flex-direction: column;
+        background-color: #0a3d62;
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        padding: 10px;
+        display: block;
+    }
+
+    /* Animate hamburger to X */
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    background-color: #f4f9fb;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 16px;
+}
+
+/* ===== About Section ===== */
+.about {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.about h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: #0a3d62;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+
+/* ===== Page Header ===== */
+.page-header {
+    background-color: #eaf4f6;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.page-header h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+/* ===== Page Content ===== */
+.page-content {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* ===== Cards ===== */
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #0a3d62;
+}
+
+/* ===== Achievement Cards ===== */
+.achievement-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.achievement-score {
+    text-align: center;
+    min-width: 100px;
+}
+
+.score-badge {
+    display: block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    
+    background: linear-gradient(135deg, #0a3d62, #1e6f7f);
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 50%;
+    
+    margin-bottom: 8px;
+}
+
+.achievement-score p {
+    font-size: 13px;
+    color: #666;
+}
+
+.achievement-details {
+    flex: 1;
+}
+
+.achievement-details h3 {
+    color: #0a3d62;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.achievement-meta {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.achievement-breakdown {
+    background-color: #f4f9fb;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.achievement-description {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments for achievements */
+@media (max-width: 600px) {
+    .achievement-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* ===== Notice Board Layout ===== */
+.notice-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ===== Notice Item ===== */
+.notice-item {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border-left: 4px solid #0a3d62;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    
+    display: flex;
+    gap: 20px;
+}
+
+/* ===== Notice Date Box ===== */
+.notice-date {
+    background-color: #0a3d62;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    min-width: 80px;
+    height: fit-content;
+}
+
+.notice-date .day {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.notice-date .month {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.notice-date .year {
+    display: block;
+    font-size: 12px;
+    margin-top: 3px;
+    opacity: 0.8;
+}
+
+/* ===== Notice Details ===== */
+.notice-details {
+    flex: 1;
+}
+
+.notice-details h3 {
+    color: #0a3d62;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.notice-category {
+    display: inline-block;
+    background-color: #c9a85c;
+    color: #ffffff;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.notice-text {
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Responsive adjustments for notices */
+@media (max-width: 600px) {
+    .notice-item {
+        flex-direction: column;
+    }
+    
+    .notice-date {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .notice-date .day {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    
+    .notice-date .month {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    
+    .notice-date .year {
+        display: inline-block;
+    }
+}
+
+/* ===== Video Cards ===== */
+.video-card {
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+/* ===== Video Thumbnail ===== */
+.video-thumbnail {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.video-thumbnail iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== Video Info ===== */
+.video-info {
+    padding: 20px;
+}
+
+.video-info h3 {
+    color: #0a3d62;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.video-meta {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.video-description {
+    color: #555;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Adjust grid for better video display */
+@media (min-width: 768px) {
+    .page-content {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+
+/* ===== IELTS Page Layout ===== */
+.ielts-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 30px;
+}
+
+/* ===== Sidebar ===== */
+.ielts-sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.ielts-sidebar h3 {
+    color: #0a3d62;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-menu li {
+    margin-bottom: 8px;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu a:hover {
+    background-color: #f4f9fb;
+    color: #0a3d62;
+    padding-left: 15px;
+}
+
+/* ===== Main Content ===== */
+.ielts-main {
+    flex: 1;
+}
+
+.ielts-section {
+    background-color: #ffffff;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.ielts-section h2 {
+    color: #0a3d62;
+    margin-bottom: 15px;
+    font-size: 24px;
+    border-bottom: 2px solid #c9a85c;
+    padding-bottom: 10px;
+}
+
+.ielts-section h4 {
+    color: #0a3d62;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* ===== Info Boxes ===== */
+.info-box, .strategy-box {
+    background-color: #f4f9fb;
+    padding: 20px;
+    border-left: 4px solid #0a3d62;
+    margin: 20px 0;
+}
+
+.info-box h4, .strategy-box h4 {
+    margin-top: 0;
+}
+
+/* ===== Band Score Table ===== */
+.band-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.band-table thead {
+    background-color: #0a3d62;
+    color: #ffffff;
+}
+
+.band-table th, .band-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.band-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* ===== Tips Grid ===== */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.tip-card {
+    background-color: #f4f9fb;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.tip-card h4 {
+    color: #0a3d62;
+    margin-top: 0;
+}
+
+.tip-card ul {
+    margin: 10px 0 0 20px;
+}
+
+/* ===== Writing Tasks ===== */
+.writing-tasks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.task-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 2px solid #0a3d62;
+    border-radius: 4px;
+}
+
+.task-box h4 {
+    color: #0a3d62;
+    margin-top: 0;
+}
+
+/* ===== Speaking Parts ===== */
+.speaking-parts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.part-box {
+    background-color: #f4f9fb;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.part-box h4 {
+    color: #0a3d62;
+    margin-top: 0;
+}
+
+/* ===== Registration Links ===== */
+.registration-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.external-link {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #0a3d62;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.external-link:hover {
+    background-color: #1e6f7f;
+}
+
+/* ===== Resources Grid ===== */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.resource-card {
+    background-color: #f4f9fb;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.resource-card h4 {
+    color: #0a3d62;
+    margin-top: 0;
+}
+
+.resource-card ul {
+    margin: 10px 0 0 20px;
+}
+
+/* ===== Responsive Design for IELTS Page ===== */
+@media (max-width: 768px) {
+    .ielts-container {
+        flex-direction: column;
+    }
+    
+    .ielts-sidebar {
+        width: 100%;
+        position: static;
+    }
+    
+    .tips-grid,
+    .writing-tasks,
+    .speaking-parts,
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Visa Page Layout ===== */
+.visa-content {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.visa-content section {
+    background-color: #ffffff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.visa-content h2 {
+    color: #0a3d62;
+    margin-bottom: 20px;
+    font-size: 26px;
+    border-bottom: 2px solid #c9a85c;
+    padding-bottom: 10px;
+}
+
+.section-intro {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+/* ===== Warning Box ===== */
+.warning-box {
+    background-color: #fff3cd;
+    border-left: 4px solid #c9a85c;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+/* ===== Countries Grid ===== */
+.countries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.country-card {
+    background-color: #f4f9fb;
+    padding: 25px;
+    border-radius: 6px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.country-card:hover {
+    border-color: #0a3d62;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.country-card h3 {
+    color: #0a3d62;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.country-card > p {
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.country-card ul {
+    margin: 10px 0 0 20px;
+    color: #555;
+}
+
+.country-card li {
+    margin-bottom: 6px;
+}
+
+/* ===== Process Steps ===== */
+.process-steps {
+    margin-top: 30px;
+}
+
+.step {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 60px;
+    width: 2px;
+    height: calc(100% + 10px);
+    background-color: #c9a85c;
+}
+
+.step-number {
+    min-width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #0a3d62, #1e6f7f);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.step-content {
+    flex: 1;
+    padding-top: 5px;
+}
+
+.step-content h3 {
+    color: #0a3d62;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.step-content p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.step-duration {
+    color: #888;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* ===== Documents Grid ===== */
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.doc-category {
+    background-color: #f4f9fb;
+    padding: 20px;
+    border-radius: 4px;
+    border-left: 4px solid #0a3d62;
+}
+
+.doc-category h4 {
+    color: #0a3d62;
+    margin-bottom: 12px;
+}
+
+.doc-category ul {
+    margin: 0 0 0 20px;
+    color: #555;
+}
+
+.doc-category li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* ===== FAQ Section ===== */
+.faq-item {
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.faq-item h4 {
+    color: #0a3d62;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.faq-item p {
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ===== CTA Section ===== */
+.cta-section {
+    text-align: center;
+    background: linear-gradient(135deg, #0a3d62, #1e6f7f);
+    color: #ffffff;
+}
+
+.cta-section h2 {
+    color: #ffffff;
+    border-bottom: 2px solid #c9a85c;
+}
+
+.cta-section p {
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 14px 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.cta-button.primary {
+    background-color: #c9a85c;
+    color: #ffffff;
+}
+
+.cta-button.primary:hover {
+    background-color: #b89650;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.cta-button.secondary {
+    background-color: #ffffff;
+    color: #0a3d62;
+}
+
+.cta-button.secondary:hover {
+    background-color: #f4f9fb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ===== Responsive Design for Visa Page ===== */
+@media (max-width: 768px) {
+    .countries-grid,
+    .documents-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .step {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .step::after {
+        display: none;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+
+/* ===== Additional Mobile Optimizations ===== */
+
+/* Make hero section more readable on mobile */
+@media (max-width: 600px) {
+    .hero h2 {
+        font-size: 22px;
+    }
+    
+    .hero p {
+        font-size: 15px;
+    }
+    
+    .page-header h2 {
+        font-size: 22px;
+    }
+    
+    .page-header p {
+        font-size: 14px;
+    }
+}
+
+/* Ensure all cards are mobile-friendly */
+@media (max-width: 500px) {
+    .card,
+    .video-card,
+    .achievement-card,
+    .notice-item {
+        margin-bottom: 15px;
+    }
+    
+    .ielts-section,
+    .visa-content section {
+        padding: 20px;
+    }
+    
+    /* Reduce padding on smaller screens */
+    .page-content {
+        padding: 0 15px;
+    }
+}
+
+/* Fix table overflow on mobile */
+@media (max-width: 768px) {
+    .band-table {
+        font-size: 13px;
+    }
+    
+    .band-table th,
+    .band-table td {
+        padding: 8px;
+    }
+}
+
+/* Improve touch targets for mobile */
+.nav-links a,
+.sidebar-menu a,
+.external-link,
+.cta-button {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+    overflow-x: hidden;
+}
+
+/* Make images responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve readability on small screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+}
