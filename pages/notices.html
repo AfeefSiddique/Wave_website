@@ -27,14 +27,47 @@
                 </a>
             </div>
 
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="recorded-classes.html">Recorded Classes</a></li>
-                <li><a href="achievements.html">Achievements</a></li>
-                <li><a href="teachers.html">Teachers</a></li>
-                <li><a href="notices.html">Notices</a></li>
-                <li><a href="ielts.html">IELTS</a></li>
-                <li><a href="visa.html">Visa Consultancy</a></li>
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navigation for all pages inside 'pages' folder -->
+            <ul class="nav-links" id="navLinks">
+               <li><a href="../index.html">Home</a></li>
+    
+               <!-- Courses Dropdown -->
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle">Courses ▼</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="recorded-classes.html">Recorded Classes</a></li>
+                     <li><a href="ielts.html">IELTS</a></li>
+                     <li><a href="course-plan.html">Course Plan</a></li>
+                     <li><a href="hospitality.html">Hospitality Training</a></li>
+                   </ul>
+                </li>
+    
+                <!-- Services Dropdown -->
+               <li class="dropdown">
+                   <a href="#" class="dropdown-toggle">Services ▼</a>
+                   <ul class="dropdown-menu">
+                       <li><a href="visa.html">Visa Consultancy</a></li>
+                       <li><a href="work-consultancy.html">Work Consultancy</a></li>
+                       <li><a href="mental-health.html">Mental Health</a></li>
+                    </ul>
+                </li>
+    
+                <!-- About Dropdown -->
+                <li class="dropdown">
+                   <a href="#" class="dropdown-toggle">About ▼</a>
+                   <ul class="dropdown-menu">
+                      <li><a href="teachers.html">Teachers</a></li>
+                      <li><a href="achievements.html">Achievements</a></li>
+                      <li><a href="notices.html">Notices</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -145,6 +178,6 @@
         <p>© 2025 Wave Language Club. All rights reserved.</p>
     </footer>
 <!-- JavaScript -->
-<script src="js/main.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>

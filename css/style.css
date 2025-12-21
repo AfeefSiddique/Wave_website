@@ -15,12 +15,13 @@ body {
 
 
 /* ===== Navigation Bar ===== */
+/* ===== Navigation Bar (ensure this is in your CSS) ===== */
 header {
     background-color: #0a3d62;
     color: #ffffff;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* Very important for dropdowns */
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
@@ -28,12 +29,11 @@ header {
     max-width: 1200px;
     margin: auto;
     padding: 15px 20px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative; /* Important for dropdown positioning */
 }
-
 .logo h1 {
     font-size: 22px;
 }
@@ -84,6 +84,7 @@ header {
     border: none;
     cursor: pointer;
     padding: 5px;
+    z-index: 10001;
 }
 
 .mobile-menu-toggle span {
@@ -103,28 +104,33 @@ header {
 
     .nav-links {
         position: fixed;
-        left: -100%;
-        top: 75px;
+        right: -100%;
+        top: 0;
         flex-direction: column;
         background-color: #0a3d62;
-        width: 100%;
-        text-align: center;
-        transition: left 0.3s ease;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        padding: 20px 0;
+        width: 280px;
+        max-width: 85%;
+        height: 100vh;
+        text-align: left;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+        padding: 80px 0 20px 0;
+        overflow-y: auto;
+        z-index: 10000;
     }
 
     .nav-links.active {
-        left: 0;
+        right: 0;
     }
 
     .nav-links li {
-        margin: 15px 0;
+        margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .nav-links a {
+    .nav-links > li > a {
         font-size: 16px;
-        padding: 10px;
+        padding: 15px 25px;
         display: block;
     }
 
@@ -139,6 +145,27 @@ header {
 
     .mobile-menu-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Mobile overlay */
+    .nav-links::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: -1;
+    }
+
+    .nav-links.active::before {
+        opacity: 1;
+        visibility: visible;
+        left: -100vw;
     }
 }
 
@@ -1060,5 +1087,124 @@ img {
     
     h3 {
         font-size: 18px;
+    }
+}
+
+
+/* ===== Dropdown Navigation (IMPROVED) ===== */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0a3d62;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 8px 0;
+    list-style: none;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background-color: #1e6f7f;
+    color: #c9a85c;
+}
+
+/* Show dropdown on hover - Desktop */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Keep dropdown open when hovering over menu items */
+.dropdown-menu:hover {
+    display: block;
+}
+
+/* Add padding to dropdown area for better hover detection */
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: transparent;
+}
+
+/* Mobile Dropdown Adjustments */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background-color: #0d4d72;
+        margin-top: 0;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: none;
+        min-width: auto;
+    }
+    
+    .dropdown-menu a {
+        padding: 12px 20px 12px 35px;
+        font-size: 15px;
+    }
+    
+    /* Hide dropdown by default on mobile */
+    .dropdown-menu {
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+    }
+    
+    /* Show when active class is added via JavaScript */
+    .dropdown-menu.active {
+        display: block;
+        max-height: 500px;
+    }
+    
+    .dropdown::after {
+        display: none;
+    }
+    
+    /* Make dropdown toggle more obvious on mobile */
+    .dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
     }
 }

@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- SEO & Performance -->
-<meta name="description" content="Wave Language Club - Professional IELTS preparation and English language training with expert instructors.">
-<meta name="keywords" content="IELTS, English learning, language club, visa processing, study abroad">
-<meta name="author" content="Wave Language Club">
-<link rel="icon" type="image/png" href="assets/logo.png">
-
+    <!-- SEO & Performance -->
+    <meta name="description" content="Wave Language Club - Professional IELTS preparation and English language training with expert instructors.">
+    <meta name="keywords" content="IELTS, English learning, language club, visa processing, study abroad">
+    <meta name="author" content="Wave Language Club">
+    <link rel="icon" type="image/png" href="assets/logo.png">
 
     <title>Wave Language Club</title>
 
@@ -19,32 +18,58 @@
 <body>
 
     <!-- ===== Header / Navigation ===== -->
-<header>
-    <nav class="navbar">
-        <div class="logo">
-            <a href="index.html">
-               <img src="assets/logo.png" alt="Wave Language Club logo">
-            </a>
-         </div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Wave Language Club logo">
+                </a>
+            </div>
 
-        <!-- Mobile Menu Toggle -->
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pages/recorded-classes.html">Recorded Classes</a></li>
-            <li><a href="pages/achievements.html">Achievements</a></li>
-            <li><a href="pages/teachers.html">Teachers</a></li>
-            <li><a href="pages/notices.html">Notices</a></li>
-            <li><a href="pages/ielts.html">IELTS</a></li>
-            <li><a href="pages/visa.html">Visa Consultancy</a></li>
-        </ul>
-    </nav>
-</header>
+            <!-- UPDATED NAVIGATION WITH DROPDOWNS -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                
+                <!-- Courses Dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Courses ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/recorded-classes.html">Recorded Classes</a></li>
+                        <li><a href="pages/ielts.html">IELTS</a></li>
+                        <li><a href="pages/course-plan.html">Course Plan</a></li>
+                        <li><a href="pages/hospitality.html">Hospitality Training</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Services Dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Services ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/visa.html">Visa Consultancy</a></li>
+                        <li><a href="pages/work-consultancy.html">Work Consultancy</a></li>
+                        <li><a href="pages/mental-health.html">Mental Health</a></li>
+                    </ul>
+                </li>
+                
+                <!-- About Dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/teachers.html">Teachers</a></li>
+                        <li><a href="pages/achievements.html">Achievements</a></li>
+                        <li><a href="pages/notices.html">Notices</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- ===== Hero Section ===== -->
     <section class="hero">
@@ -70,9 +95,7 @@
         <p>© 2025 Wave Language Club. All rights reserved.</p>
     </footer>
 
-
-
-<!-- JavaScript -->
-<script src="js/main.js"></script>    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>    
 </body>
 </html>
